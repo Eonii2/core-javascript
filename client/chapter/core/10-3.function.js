@@ -82,7 +82,15 @@ console.log(user.totalGrades());
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
-let pow;
+let pow = (numeric, powerCount) => {
+  let result = 1;
+  for (let i = 0; i < powerCount; i++) {
+    result *= numeric;
+  }
+  return result;
+};
+
+let powExpression = (numeric, powerCount) => {};
 
 pow(2, 53); // 9007199254740992
 
