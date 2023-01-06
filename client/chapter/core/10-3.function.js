@@ -2,6 +2,21 @@
 /* Functions → Arrow                                                      */
 /* ---------------------------------------------------------------------- */
 /* 
+const user = {
+  sayHi(){
+
+  },
+  greeting: function(){
+
+  }
+}
+
+button.addEventListener('click',(e)=>{
+  
+  e.target.style.background = 'red'
+})
+ */
+/* 
 let arr = [1,2,3,4];
 
 function sum(...args){
@@ -90,11 +105,28 @@ let pow = (numeric, powerCount) => {
   return result;
 };
 
-let powExpression = (numeric, powerCount) => {};
+// acc *= numeric
+// acc += text
 
-pow(2, 53); // 9007199254740992
+let powExpression = (numeric, powerCount) =>
+  Array(powerCount)
+    .fill(null)
+    .reduce((acc) => acc * numeric, 1);
+
+// pow(2,53) // 9007199254740992
 
 // repeat(text: string, repeatCount: number): string;
-let repeat;
+let repeat = (text, repeatCount) => {
+  let result = "";
+  for (let i = 0; i < repeatCount; i++) {
+    result += text;
+  }
+  return result;
+};
 
-repeat("hello😘", 3); // 'hello😘hello😘hello😘'
+let repeatExpression = (text, repeatCount) =>
+  Array(repeatCount)
+    .fill(null)
+    .reduce((acc) => acc + text, "");
+
+// repeat('hello😘',3) //  'hello😘hello😘hello😘'

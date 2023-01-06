@@ -2,6 +2,8 @@
 /* Functions → Expression                                                 */
 /* ---------------------------------------------------------------------- */
 /* 
+
+
 {
 
    const sum  = function (valueA,valueB){
@@ -82,8 +84,27 @@ let anonymousFunctionExpression = function () {};
 // 유명(이름을 가진) 함수 (표현)식
 let namedFunctionExpression = function hello() {};
 
+/* 
+movePage('https://www.naver.com',
+(url)=>{  window.href = url},
+()=>{})
+
+ */
 // 콜백 함수 (표현)식
-let callbackFunctionExpression = function (url, resolve, reject) {
+let movePage = function (url, resolve, reject) {
+  // let url = 'https://www.naver.com';
+
+  // let resolve = function (url){
+  //   console.log(`${url} 해당 페이지로 이동합니다.`);
+  // }
+
+  // let reject = function (url){
+  // throw new Error('url 입력 정보가 올바르지 않습니다.')
+  // }
+
+  // resolve()
+  // reject()
+
   // if(typeof url === 'string' && url.includes('http') && url.includes('www')){
   if (typeof url === "string" && url.match(/http.+www/)) {
     resolve(url);
@@ -92,7 +113,7 @@ let callbackFunctionExpression = function (url, resolve, reject) {
   }
 };
 
-callbackFunctionExpression(
+movePage(
   "https://www.naver.com",
   function (url) {
     console.log(`${url} 해당 페이지로 이동합니다.`);
@@ -109,9 +130,19 @@ forEach(function(currentValue, index, array){}, thisArg)
 arr.forEach(function(item,index){})
  */
 
-// 함수 선언문 vs. 함수 (표현)식
-function aa() {}
+const user = {
+  name: "tiger",
+  age: 32,
+};
 
+function aa() {
+  console.log(this);
+}
+
+let call = aa.call(user);
+let bind = aa.bind(user);
+
+// 함수 선언문 vs. 함수 (표현)식
 const bb = function () {};
 
 // 즉시 실행 함수 (표현)식
@@ -132,6 +163,20 @@ let IIFE;
 
 // getNode 받아
 
+// const MASTER = (function(){
+
+//   const KEY = 'alcls@#@!$%'
+
+//   return {
+//     getKey: function (){
+//       return KEY
+//     }
+//   }
+// })();
+
+// 전역을 보호하자. 전역을 오염시키지 말자.
+(function ($) {})(window);
+
 const MASTER = (function ($) {
   // parameter
 
@@ -151,8 +196,20 @@ const MASTER = (function ($) {
   };
 })(getNode); // arguments
 
-function getNode(node) {
+MASTER.KEY;
+
+MASTER.getkey();
+
+/* -------------------------------------------------------------------------- */
+/* 모듈 프로그래밍                                                                   */
+/* -------------------------------------------------------------------------- */
+
+// 📂 10-2.function.js
+
+export function getNode(node) {
   return document.querySelector(node);
 }
 
-console.log(MASTER.getKey());
+// 📂 index.js
+
+import { getNode as $ } from "./10-2.function.js";

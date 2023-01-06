@@ -4,54 +4,49 @@
 
 let number = prompt("숫자를 입력해 주세요", 0);
 
-if (number > 0) {
-  console.log('1');
-}else if (number < 0) {
-  console.log('-1');
-}else (number = 0) {
-  console.log('0');
-}
+let message = number > 0 ? "1" : number < 0 ? "-1" : "아무것도 아닙니다.";
 
-let value = prompt('숫자를 입력하세요.', 0);
+console.log(message);
 
-if (value > 0) {
-  alert( 1 );
-} else if (value < 0) {
-  alert( -1 );
-} else {
-  alert( 0 );
+/* 
+if(number > 0){
+  
+}else if(number < 0){
+  
+}else{
+  
 }
+ */
 
 // 그 영화 봤니?
-
-let didWatchMovie = 'yes';
-
 //     ↓
 // Yes | No
 //     | 영화 볼거니?
-
-let goingToWatchMovie = 'no';
-
 //           ↓
 //       Yes | No
 
 // 영화 봤니?
-let didWatchMovie;
+let didWatchMovie = "yes";
 
 // 영화 볼거니?
-let goingToWatchMovie;
+let goingToWatchMovie = "no";
 
-// if 문(statement)
+if (didWatchMovie.includes("yes")) {
+  // if 문(statement)
+  console.log("그거 재밌더라..?");
+} else if (goingToWatchMovie === "yes") {
+  // else if 복수 조건 처리
+  console.log("너무 설렌다~~");
+} else {
+  // else 절(caluse)
+  console.log("음...난 별루");
+}
 
-let suggestion = prompt('영화볼거니?',답)
-
-if (suggestion=going
-
-
-if(didWatchMovie == 'yes')
-console.log('rm// else 절(caluse)
-
-// else if 복수 조건 처리
+let movieMessage = didWatchMovie.includes("yes")
+  ? "그거 재밌더라"
+  : goingToWatchMovie === "yes"
+  ? "너무 설렌다~~"
+  : "난 별루...";
 
 // 조건부 연산자
 

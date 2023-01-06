@@ -2,11 +2,11 @@
 /* Variables                                                             */
 /* --------------------------------------------------------------------- */
 
-/* eslint no-unused-vars:'off'*/
+/* eslint no-unused-vars: 0 */
 let admin;
 let name;
 
-name = "john";
+name = "John";
 
 admin = name;
 
@@ -24,11 +24,11 @@ let calcProductQuantity;
 let totalProductPrice;
 
 // - 1년 기준 일(day)자 수
-const DAY_PER_YEAR = 365;
+const DAYS_PER_YEAR = 365;
 
 // - 구매 결제 여부
 let isPayment = false;
-let hasClassname = false;
+let hasClassName = false;
 
 // - 구매 결제 내역
 let paymentHistory;
@@ -37,13 +37,31 @@ let paymentHistory;
 const BRAND_PREFIX = "EUID";
 
 // - 오늘의 운세
-let fortunerOfToday;
+let fortuneOfToday;
 
 // - 상품 정보
-const productInformation = "";
+const productInfomation = "";
 
 /* variables ----------------------------------------------------------- */
 
 /* constant variables -------------------------------------------------- */
 
-//Redux
+// Redux
+
+// panding 아무것도 안함
+// loading 로딩중, 요청 대기
+// fulfilled, resolved 응답 성공
+// rejected 실패
+
+const PANDING = "api/panding";
+const LOADING = "api/loading";
+const FULFILLED = "api/fulfilled";
+const REJECTED = "api/rejected";
+
+/* -------------------------------------------------------------------------- */
+/* Lexical Environment                                                        */
+/* -------------------------------------------------------------------------- */
+
+var nickName = "tiger";
+
+let nickName2 = "tiger"; // Temporal Dead Zone  (임시 사망 지역, 임시 사각 지역)

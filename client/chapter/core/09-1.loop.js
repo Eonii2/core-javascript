@@ -2,11 +2,16 @@
 /* While Loop                                                             */
 /* ---------------------------------------------------------------------- */
 
-// let i = 0;
+/* 
+let i = 0;
 
-// while (i < 10) {
-//   console.log(++i);
-// }
+while(i < 10){
+  console.log(++i);
+
+  
+}
+
+ */
 
 const frontEndDev = [
   "HTML",
@@ -27,33 +32,46 @@ const frontEndDev = [
 // console.log(frontEndDev[4]);
 // console.log(frontEndDev[5]);
 
-// let i = 0;
+let i = 0;
 
-// while (i < frontEndDev.length) {
-//   let value = frontEndDev[i];
-//   console.log(value);
-//   i++;
+while (i < frontEndDev.length) {
+  let value = frontEndDev[i];
 
-// }
+  // console.log(i);
 
-// 역순환
+  console.log(value);
 
-// let i = frontEndDev.length;
+  i++;
+}
 
-// while (i > 0) {
-//   console.log(frontEndDev[i]);
-//   i--;
-// }
+console.log(i);
 
-//전개 연산자 전개 구문 spread operator
+let z1 = performance.now();
+let z2 = performance.now();
 
-let copyArray = [...frontEndDev];
+console.log(z2 - z1);
+
+/* 
+let i = frontEndDev.length;
+
+while( i >= 0){
+
+  console.log(i, frontEndDev[i] );
+
+  i--
+}
+
+ */
+
+// 전개 연산자  전개 구문 spread oparator
+
+// let copyArray = [...frontEndDev];
 
 // let copyArray = frontEndDev.slice();
 
-while (frontEndDev.length) {
-  console.log(frontEndDev.pop());
-}
+// while(copyArray.length){
+//   console.log(copyArray.pop());
+// }
 
 /* 프론트엔드 개발 집합을 순환해서 각 아이템을 Console 패널에 출력 -------------------- */
 
