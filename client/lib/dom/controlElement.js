@@ -1,6 +1,14 @@
 import { typeError } from "../error/typeError.js";
 import { isElement } from "../utils/typeOf.js";
 
+// JSDoc
+
+/**
+ * @function isElement checkElement
+ * @param {HTMLElement} node
+ * @return set disabled
+ */
+
 export function disableElement(node) {
   if (!isElement(node)) {
     typeError("disableElement 함수의 인자는 DOM 요소 노드 이어야 합니다.");
@@ -15,3 +23,21 @@ export function enableElement(node) {
 
   node.disabled = false;
 }
+
+export function visibleElement(node) {
+  // 보여야함
+  if (!isElement(node)) {
+    typeError("visibleElement 함수의 인자는 DOM 요소 노드 이어야 합니다.");
+  }
+  node.hidden = false;
+}
+
+export function invisibleElement(node) {
+  // 안보여야함
+  if (!isElement(node)) {
+    typeError("invisibleElement 함수의 인자는 DOM 요소 노드 이어야 합니다.");
+  }
+  node.hidden = true;
+}
+
+//함수안에서 쓸 변수를 함수안에서 정의하지않고 받아왔을경우 매개변수로 넣어줘야 안에서 쓸 수 있음
