@@ -4,3 +4,4 @@ export * from "./memo.js";
 export * from "./typeOf.js";
 export * from "./delay.js";
 export * from "./eoni.js";
+export * from "./theme.js";

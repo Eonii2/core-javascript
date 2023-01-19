@@ -15,7 +15,7 @@ export const eoni = async (options = {}) => {
   const { url, ...restOptions } = {
     ...defaultOptions,
     ...options,
-    headers: { ...(defaultOptions.headers ?? {}), ...(options.headers ?? {}) }, // 깊은 복사
+    headers: { ...defaultOptions.headers, ...options.headers },
   };
 
   let response = await fetch(url, restOptions);
@@ -24,18 +24,29 @@ export const eoni = async (options = {}) => {
     response.data = await response.json();
   }
 
+  // console.log(response);
+
   return response;
 };
 
-eoni.get = (url, options) => {
-  eoni({
+eoni.get = async (url, options) => {
+  return eoni({
     url,
     ...options,
   });
 };
 
+eoni.post = (url, body, options) => {
+  return eoni({
+    method: "POST",
+    url,
+    body: JSON.stringify(body),
+    ...options,
+  });
+};
+
 eoni.put = (url, body, options) => {
-  eoni({
+  return eoni({
     method: "PUT",
     url,
     body: JSON.stringify(body),
@@ -44,20 +55,9 @@ eoni.put = (url, body, options) => {
 };
 
 eoni.delete = (url, options) => {
-  eoni({
+  return eoni({
     method: "DELETE",
     url,
     ...options,
   });
 };
-
-eoni.post = (url, body, options) => {
-  eoni({
-    method: "POST",
-    url,
-    body: JSON.stringify(body),
-    ...options,
-  });
-};
-
-eoni.post("어쩌고", { name: "eoni" }, { mode: "cors", headers: {} });
